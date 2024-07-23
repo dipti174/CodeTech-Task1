@@ -1,4 +1,4 @@
-## Personal Portfolio with backend
+## Personal Portfolio with Backend
 
 ![image](https://github.com/user-attachments/assets/62e383d7-8505-4840-9720-e521e0494244)
 
