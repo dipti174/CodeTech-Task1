@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: 'poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 50px;
+            /* Increased height */
+            background-color: rgb(13, 13, 62);
+            padding: 20px;
+            /* Adjusted padding */
+        }
+
+        footer {
+            background-color: rgb(37, 28, 37);
+            /* Adjusted height */
+            margin-top: auto;
+            /* Added margin */
+            display: flex;
+            justify-content:space-evenly;
+            align-items:center;
+        }
+
+        h1 {
+            display: flex;
+            padding: 10px 20px;
+            font-size: 1.9rem;
+        }
+
+        .form-group {
+            display: flex;
+            padding: 10px 20px;
+        }
+        .btn{
+            display: flex;
+            padding: 10px 20px;
+            background-color: rgb(33, 33, 33);
+            color: white;
+        }
+
+        .post {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('projects') }}">Projects</a>
+            <a href="{{ url_for('blog') }}">Blog</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Add Project</h1>
+        <form action="{{ url_for('add_project') }}" method="post">
+            <div class="form-group">
+                <label for="title">Project Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn">Add Project</button>
+        </form>
+        <h1>Blog</h1>
+        <div class="box">
+            {% for project in projects %}
+                <div class="post">
+                    <h2>{{ project.title }}</h2><br>
+                    <p>{{ project.description }}</p><br>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Dipti's Developer Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
